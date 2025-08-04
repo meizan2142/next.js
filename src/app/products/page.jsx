@@ -155,7 +155,7 @@ const ProductsPage = () => {
                     <div className="flex gap-4">
                         <button className="rounded-lg bg-slate-800 px-6 py-2 text-[12px] font-semibold text-white duration-300 hover:bg-slate-950 sm:text-sm md:text-base">Add to Cart</button>
                         <button className="rounded-md border border-black px-4 py-2 duration-300 hover:bg-gray-200 dark:border-white dark:hover:bg-white dark:hover:text-slate-800">
-                            <Link href={`/products/${product.name}`}>View Details</Link>
+                            <Link href={`/products/${product?.name}`}>View Details</Link>
                         </button>
                     </div>
                 </div>)
