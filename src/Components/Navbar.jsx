@@ -4,6 +4,26 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+
+const routes = [
+    {
+        pathName: "Home",
+        path: "/"
+    },
+    {
+        pathName: "About",
+        path: "/about"
+    },
+    {
+        pathName: "Products",
+        path: "/products"
+    },
+    {
+        pathName: "Services",
+        path: "/services"
+    },
+]
+
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const pathName = usePathname();
@@ -54,30 +74,15 @@ const Navbar = () => {
                         </div>
                         <div className="hidden sm:block sm:ml-6">
                             <div className="flex space-x-4">
-                                <Link
-                                    href="/"
-                                    className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                                >
-                                    Home
-                                </Link>
-                                <Link
-                                    href="/about"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                                >
-                                    About
-                                </Link>
-                                <Link
-                                    href="/products"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                                >
-                                    Products
-                                </Link>
-                                <Link
-                                    href="/contact"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                                >
-                                    Contact
-                                </Link>
+                                {
+                                    routes.map((route) => <Link
+                                        key={route.path}
+                                        href={route.path}
+                                        className={`${pathName === route.path && "bg-gray-900 "} text-white px-3 py-2 rounded-md text-sm font-medium`}
+                                    >
+                                        {route.pathName}
+                                    </Link>)
+                                }
                             </div>
                         </div>
                     </div>
@@ -87,34 +92,15 @@ const Navbar = () => {
             {/* Mobile menu */}
             <div className={`${isOpen ? 'block' : 'hidden'} sm:hidden`}>
                 <div className="px-2 pt-2 pb-3 space-y-1">
-                    <Link
-                        href="/"
-                        className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-                        onClick={() => setIsOpen(false)}
-                    >
-                        Home
-                    </Link>
-                    <Link
-                        href="/about"
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                        onClick={() => setIsOpen(false)}
-                    >
-                        About
-                    </Link>
-                    <Link
-                        href="/products"
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                        onClick={() => setIsOpen(false)}
-                    >
-                        Products
-                    </Link>
-                    <Link
-                        href="/contact"
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                        onClick={() => setIsOpen(false)}
-                    >
-                        Contact
-                    </Link>
+                    {
+                        routes.map((route) => <Link
+                            key={route.path}
+                            href={route.path}
+                            className={`${pathName === route.path && "bg-gray-900 "} text-white px-3 py-2 grid rounded-md text-sm font-medium`}
+                        >
+                            {route.pathName}
+                        </Link>)
+                    }
                 </div>
             </div>
         </nav>
