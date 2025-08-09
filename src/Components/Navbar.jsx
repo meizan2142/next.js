@@ -1,4 +1,4 @@
-'use client'; // Required for client-side interactivity
+'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
