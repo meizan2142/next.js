@@ -1,6 +1,8 @@
 const CategoriesDetails = ({params}) => {
-    console.log(params.products);
-    
+    if(params.products.length === 3) 
+        return <div>{params.products[2]}</div>
+        if (params.products.length === 2) 
+            return <div>{params.products[1]}</div>
     return (
         <div>CategoriesDetails</div>
     )
