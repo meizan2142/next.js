@@ -26,6 +26,10 @@ const routes = [
         pathName: "Categories",
         path: "/categories"
     },
+    {
+        pathName: "Dashboard",
+        path: "/dashboard"
+    },
 ]
 
 const Navbar = () => {
