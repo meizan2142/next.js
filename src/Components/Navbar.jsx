@@ -22,6 +22,10 @@ const routes = [
         pathName: "Services",
         path: "/services"
     },
+    {
+        pathName: "Categories",
+        path: "/categories"
+    },
 ]
 
 const Navbar = () => {
