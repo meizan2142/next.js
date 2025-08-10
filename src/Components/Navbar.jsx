@@ -11,10 +11,6 @@ const routes = [
         path: "/"
     },
     {
-        pathName: "About",
-        path: "/about"
-    },
-    {
         pathName: "Products",
         path: "/products"
     },
