@@ -29,4 +29,5 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 3) Basic Routing Concept
 4) Link, Navigation, Nested Routing, Dynamic Routing, Group Routing, Common Layout and Conditional Layout
 5) Error Handling, catched all-segment and 404 Page route
+6) Middleware
 
