@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import ToggleSwitch from './toggleSwitch';
 
 
 const routes = [
@@ -88,6 +89,9 @@ const Navbar = () => {
                                     </Link>)
                                 }
                             </div>
+                        </div>
+                        <div>
+                            <ToggleSwitch/>
                         </div>
                     </div>
                 </div>
