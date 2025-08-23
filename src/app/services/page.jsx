@@ -3,8 +3,7 @@ import Link from "next/link"
 
 const SevicesPage = async () => {
     const postData = await getPosts()
-    // console.log(postData);
-
+    
     return (
         <div>
             <div className="grid grid-cols-4 gap-4 p-4">
@@ -14,7 +13,7 @@ const SevicesPage = async () => {
                             <h1>Title: {title}</h1>
                             <p>Description: {body}</p>
                             <button className="mt-auto border p-2 rounded-2xl bg-amber-500 text-white">
-                                <Link href={`/services/${title}`}>View Details</Link>
+                                <Link href={`/services/${id}`}>View Details</Link>
                             </button>
                         </div>
                     ))
