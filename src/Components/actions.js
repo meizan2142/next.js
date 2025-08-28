@@ -1,34 +1,39 @@
 "use server"
 
-const googleScriptURL = "https://script.google.com/macros/s/AKfycbx4eHI6asUx2_OI0b7hxLUiODxAwhEjOKqNg-JQx3LjAwy3OVW173w6yfCvEaz0lj1K/exec"
+const googleScriptURL = "https://script.google.com/macros/s/AKfycbwzjEs7T3TM2qnWLmenfc0JX4TYtXrGZnhoTX9pXaZeyWAf8rmKXDfhFQwrKOTXhBjL/exec"
 
-
-export const postDetails = async(formData) => {
-    const name = formData.get("name");
-    const phone = formData.get("phone");
-    const district = formData.get("district");
-    const thana = formData.get("thana");
-    const address = formData.get("address");
+export const postDetails = async (formData) => {
     try {
-        const res = await fetch (googleScriptURL, {
+        // Create URLSearchParams instead of JSON
+        const params = new URLSearchParams();
+        params.append('name', formData.get("name"));
+        params.append('phone', formData.get("phone"));
+        params.append('district', formData.get("district"));
+        params.append('thana', formData.get("thana"));
+        params.append('address', formData.get("address"));
+
+        const res = await fetch(googleScriptURL, {
             method: "POST",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify({
-                name,
-                phone, 
-                district, 
-                thana, 
-                address
-            })
+            body: params
+            // No Content-Type header needed for URLSearchParams
         })
+
         if (!res.ok) {
-            throw new Error("Failed")
+            throw new Error(`HTTP error! status: ${res.status}`);
         }
-        return {successMessage: `sdlkfjsdlfsdlj`}
+
+        const data = await res.json();
+
+        return {
+            success: data.result === "success",
+            message: data.message || "Submission successful"
+        }
     }
     catch (error) {
-        return {errorMessage: `error`}
+        console.error("Error in postDetails:", error);
+        return {
+            success: false,
+            message: error.message || "Submission failed"
+        }
     }
 }
