@@ -9,11 +9,6 @@ export const generateMetadata = async ({ params }) => {
     }
 }
 
-// export const metadata = {
-//     title: post.title,
-//     description: post.body,
-// };
-
 const SinglePost = async ({ params }) => {
     const { body, title } = await getSinglePostDetails(params.id)
 
