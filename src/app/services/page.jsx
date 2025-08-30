@@ -1,11 +1,14 @@
 import { getPosts } from "@/api/api"
+import { Poppins } from "next/font/google"
 import Link from "next/link"
+
+const poppins = Poppins({subsets: ["latin"], weight: "400"})
 
 const SevicesPage = async () => {
     const postData = await getPosts()
     
     return (
-        <div>
+        <div className={poppins.className}>
             <div className="grid grid-cols-4 gap-4 p-4">
                 {
                     postData.slice(0, 12).map(({ id, body, title }) => (
