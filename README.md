@@ -28,4 +28,6 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 4) Link, Navigation, Nested Routing, Dynamic Routing, Group Routing, Common Layout and Conditional Layout
 5) Error Handling, catched all-segment and 404 Page route
 6) Middleware
+7) Caching and Revalidating
+8) Font Optimization and Next Image
 
