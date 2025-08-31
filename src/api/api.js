@@ -1,6 +1,7 @@
 export const getPosts = async () => {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts")
-    const data = await res.json()
+    console.log('API URL:', process.env.NEXT_PUBLIC_API_URL); // Check if this logs undefined
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
+    const data = await res.json();
     return data;
 }
 
@@ -11,8 +12,8 @@ export const getSinglePostDetails = async (id) => {
 }
 
 
-export const getMeals = async(meal) => {
+export const getMeals = async (meal) => {
     const res = await fetch(`https://themealdb.com/api/json/v1/1/search.php?f=${meal}`)
     const data = await res.json()
-    retun
+    return data;
 }
