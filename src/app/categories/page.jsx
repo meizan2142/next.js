@@ -1,6 +1,6 @@
 const CategoriesPage = () => {
     return (
-        <div>Categories Page</div>
+        <div>Categories Page with Next.js</div>
     )
 }
 
