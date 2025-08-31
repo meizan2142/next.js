@@ -9,6 +9,20 @@ const nextConfig = {
                 pathname: "/**"
             }
         ]
+    },
+    redirects: async () => {
+        return [
+            {
+                source: '/products',
+                destination: '/services',
+                permanent: true,
+            },
+            {
+                source: '/meals',
+                destination: '/time',
+                permanent: true,
+            },
+        ]
     }
 };
 
