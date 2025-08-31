@@ -6,7 +6,6 @@ const poppins = Poppins({subsets: ["latin"], weight: "400"})
 
 const SevicesPage = async () => {
     const postData = await getPosts()
-    
     return (
         <div className={poppins.className}>
             <div className="grid grid-cols-4 gap-4 p-4">
