@@ -20,10 +20,6 @@ const routes = [
         path: "/services"
     },
     {
-        pathName: "Categories",
-        path: "/categories"
-    },
-    {
         pathName: "Dashboard",
         path: "/dashboard"
     },

@@ -30,4 +30,4 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 6) Middleware
 7) Caching and Revalidating
 8) Font Optimization and Next Image
-
+8) Next-Auth
