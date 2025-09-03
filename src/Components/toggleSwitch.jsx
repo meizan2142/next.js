@@ -7,9 +7,6 @@ const ToggleSwitch = () => {
         setIsChecked(!isChecked);
     };
 
-    console.log(isChecked);
-
-
     return (
         <div className="relative w-[100px] h-[50px] border rounded-full border-white">
             <label className="absolute w-full h-[50px] bg-gray-800 rounded-[25px] cursor-pointer border-[3px] border-gray-800">
