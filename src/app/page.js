@@ -9,7 +9,7 @@ const imageLink = [
 
 export default function Home() {
   return (
-    <div className="h-screen">
+    <div className="">
       <div className="grid grid-cols-2">
         {
           imageLink.map((img) => <Image key={img}
