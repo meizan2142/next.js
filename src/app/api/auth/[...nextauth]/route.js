@@ -37,12 +37,14 @@ const handler = NextAuth({
                     type: "email",
                     required: true,
                     placeholder: "Enter your email",
+                    autocomplete: "email"
                 },
                 password: {
                     label: "Password",
                     type: "password",
                     required: true,
                     placeholder: "Enter your Password",
+                    autocomplete: "current-password"
                 },
             },
 

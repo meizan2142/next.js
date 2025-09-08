@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ToggleSwitch from './toggleSwitch';
+import { useSession } from 'next-auth/react';
 
 
 const routes = [
@@ -31,11 +32,18 @@ const routes = [
         pathName: "CheckOut",
         path: "/checkout"
     },
+    {
+        pathName: "Login",
+        path: "/api/auth/signin"
+    },
 ]
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const pathName = usePathname();
+    const session = useSession()
+    console.log(session);
+    
 
     return (
         <nav className="bg-gray-800">
