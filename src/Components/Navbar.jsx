@@ -32,18 +32,14 @@ const routes = [
         pathName: "CheckOut",
         path: "/checkout"
     },
-    {
-        pathName: "Login",
-        path: "/api/auth/signin"
-    },
 ]
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const pathName = usePathname();
     const session = useSession()
-    console.log(session);
-    
+    console.log(session.status);    
+
 
     return (
         <nav className="bg-gray-800">
@@ -103,7 +99,17 @@ const Navbar = () => {
                             </div>
                         </div>
                         <div>
-                            <ToggleSwitch/>
+                            <ToggleSwitch />
+                        </div>
+                        <div>
+                            <Link href={"/api/auth/signin"}>
+                                {
+                                    session.status === "authenticated" ?
+                                        <button className='font-bold text-white text-sm'>Logout</button>
+                                        :
+                                        <button className='font-bold text-white text-sm'>Signin</button>
+                                }
+                            </Link>
                         </div>
                     </div>
                 </div>
