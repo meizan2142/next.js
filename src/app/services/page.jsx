@@ -1,11 +1,15 @@
 import { getPosts } from "@/api/api"
+import { getServerSession } from "next-auth"
 import { Poppins } from "next/font/google"
 import Link from "next/link"
+import { authOptions } from "../api/auth/[...nextauth]/route"
 
-const poppins = Poppins({subsets: ["latin"], weight: "400"})
+const poppins = Poppins({ subsets: ["latin"], weight: "400" })
 
 const SevicesPage = async () => {
     const postData = await getPosts()
+    const session = await getServerSession(authOptions)
+    console.log({ session });
     return (
         <div className={poppins.className}>
             <div className="grid grid-cols-4 gap-4 p-4">

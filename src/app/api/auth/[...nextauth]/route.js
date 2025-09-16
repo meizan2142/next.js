@@ -25,7 +25,8 @@ const users = [
 
 // http://localhost:3000/api/auth/signin
 
-const handler = NextAuth({
+export const authOptions = {
+    secret: process.env.NEXT_PUBLIC_AUTH_SECRET,
     session: {
         strategy: "jwt"
     },
@@ -61,7 +62,9 @@ const handler = NextAuth({
             }
         })
     ]
-})
+}
+
+const handler = NextAuth(authOptions)
 
 export { handler as GET, handler as POST }
 

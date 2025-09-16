@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-const ProductsPage = () => {
+const ProductsPage = async() => {
     const allProducts = [
         {
             "id": 1,
