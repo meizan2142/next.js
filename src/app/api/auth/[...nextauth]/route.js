@@ -4,9 +4,9 @@ import CredentialsProvider from "next-auth/providers/credentials";
 const users = [
     {
         "id": 1,
-        "name": "Alice Johnson",
-        "email": "alice.johnson@example.com",
-        "password": "Alice@123"
+        "name": "Saif",
+        "email": "saif@gmail.com",
+        "password": "saif@gmail.com"
     },
     {
         "id": 2,
@@ -14,7 +14,7 @@ const users = [
         "email": "brian.smith@example.com",
         "password": "BrianPass!456"
     },
-    {
+    {   
         "id": 3,
         "name": "Clara Williams",
         "email": "clara.williams@example.com",

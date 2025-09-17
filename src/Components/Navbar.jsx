@@ -38,7 +38,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const pathName = usePathname();
     const session = useSession()
-    console.log(session.status);    
+    console.log(session);    
 
 
     return (
