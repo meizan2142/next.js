@@ -28,7 +28,8 @@ const users = [
 export const authOptions = {
     secret: process.env.NEXT_PUBLIC_AUTH_SECRET,
     session: {
-        strategy: "jwt"
+        strategy: "jwt",
+        maxAge: 60,
     },
     providers: [
         CredentialsProvider({
