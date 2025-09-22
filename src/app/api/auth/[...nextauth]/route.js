@@ -6,19 +6,22 @@ const users = [
         "id": 1,
         "name": "Saif",
         "email": "saif@gmail.com",
-        "password": "saif@gmail.com"
+        "password": "saif@gmail.com",
+        "type": "admin"
     },
     {
         "id": 2,
         "name": "Brian Smith",
         "email": "brian.smith@example.com",
-        "password": "BrianPass!456"
+        "password": "BrianPass!456",
+        "type": "user"
     },
-    {   
+    {
         "id": 3,
         "name": "Clara Williams",
         "email": "clara.williams@example.com",
-        "password": "Clara#789"
+        "password": "Clara#789",
+        "type": "moderator"
     }
 ]
 
@@ -62,7 +65,20 @@ export const authOptions = {
                 return null;
             }
         })
-    ]
+    ],
+    callbacks: {
+        async session({ session, token }) {
+            session.user.type = token.type
+            return session;
+        },
+        async jwt({ token, account, user }) {
+            // Persist the OAuth access_token and or the user id to the token right after signin
+            if (account) {
+                token.type = user.type
+            }
+            return token;
+        }
+    }
 }
 
 const handler = NextAuth(authOptions)
