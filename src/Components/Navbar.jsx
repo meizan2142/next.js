@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ToggleSwitch from './toggleSwitch';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 
 
@@ -104,7 +104,7 @@ const Navbar = () => {
                             <Link href={"/api/auth/signin"}>
                                 {
                                     session?.status === "authenticated" ?
-                                        <button className='font-bold text-white text-sm'>Logout</button>
+                                        <button onClick={() => signOut()} className='font-bold text-white text-sm'>Logout</button>
                                         :
                                         <button className='font-bold text-white text-sm'>Signin</button>
                                 }
