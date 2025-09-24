@@ -130,17 +130,22 @@ const Navbar = () => {
                                     </div>
                                     :
                                     <div>
-                                        user
+                                        Abulainne
                                     </div>
                             }
                         </div>
                         <div>
-                            <Image
-                                src={session?.data?.user?.image}
-                                width={20}
-                                height={20}
-                                alt="Picture of the author"
-                            />
+                            {
+                                session.status === "authenticated" ?
+                                    <Image
+                                        src={session?.data?.user?.image}
+                                        width={20}
+                                        height={20}
+                                        alt="Picture of the author"
+                                    />
+                                    :
+                                    <></>
+                            }
 
                         </div>
                     </div>
