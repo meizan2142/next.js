@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ToggleSwitch from './toggleSwitch';
 import { useSession } from 'next-auth/react';
+import Image from 'next/image';
 
 
 const routes = [
@@ -38,8 +39,6 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const pathName = usePathname();
     const session = useSession()
-    console.log(session);    
-
 
     return (
         <nav className="bg-gray-800">
@@ -79,7 +78,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Logo and desktop menu */}
-                    <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                    <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start space-x-5">
                         <div className="flex-shrink-0 flex items-center">
                             <Link href="/" className="font-bold text-cyan-500">
                                 Logo
@@ -104,12 +103,45 @@ const Navbar = () => {
                         <div>
                             <Link href={"/api/auth/signin"}>
                                 {
-                                    session.status === "authenticated" ?
+                                    session?.status === "authenticated" ?
                                         <button className='font-bold text-white text-sm'>Logout</button>
                                         :
                                         <button className='font-bold text-white text-sm'>Signin</button>
                                 }
                             </Link>
+                        </div>
+                        <div>
+                            {
+                                session.status === "authenticated" ?
+                                    <div>
+                                        <p className='text-white font-bold text-2xl'>{session?.data?.user?.name}</p>
+                                    </div>
+                                    :
+                                    <div>
+                                        Stranger
+                                    </div>
+                            }
+                        </div>
+                        <div>
+                            {
+                                session.status === "authenticated" ?
+                                    <div>
+                                        <p className='text-white font-bold text-2xl'>{session?.data?.user?.type}</p>
+                                    </div>
+                                    :
+                                    <div>
+                                        user
+                                    </div>
+                            }
+                        </div>
+                        <div>
+                            <Image
+                                src={session?.data?.user?.image}
+                                width={20}
+                                height={20}
+                                alt="Picture of the author"
+                            />
+
                         </div>
                     </div>
                 </div>

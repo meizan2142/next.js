@@ -7,21 +7,24 @@ const users = [
         "name": "Saif",
         "email": "saif@gmail.com",
         "password": "saif@gmail.com",
-        "type": "admin"
+        "type": "admin",
+        "image": "https://ik.imagekit.io/Gamerskit/mask%20images/Group%20427320882.png?updatedAt=1747228633543"
     },
     {
         "id": 2,
         "name": "Brian Smith",
         "email": "brian.smith@example.com",
         "password": "BrianPass!456",
-        "type": "user"
+        "type": "user",
+        "image": "https://ik.imagekit.io/Gamerskit/mask%20images/Group%20427320882.png?updatedAt=1747228633543"
     },
     {
         "id": 3,
         "name": "Clara Williams",
         "email": "clara.williams@example.com",
         "password": "Clara#789",
-        "type": "moderator"
+        "type": "moderator",
+        "image": "https://ik.imagekit.io/Gamerskit/mask%20images/Group%20427320882.png?updatedAt=1747228633543"
     }
 ]
 
