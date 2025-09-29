@@ -117,7 +117,7 @@ const Navbar = () => {
                                         <p className='text-white font-bold text-2xl'>{session?.data?.user?.name}</p>
                                     </div>
                                     :
-                                    <div>
+                                    <div className='text-white font-bold'>
                                         Stranger
                                     </div>
                             }
@@ -129,7 +129,7 @@ const Navbar = () => {
                                         <p className='text-white font-bold text-2xl'>{session?.data?.user?.type}</p>
                                     </div>
                                     :
-                                    <div>
+                                    <div className='text-white font-bold'>
                                         Abulainne
                                     </div>
                             }
