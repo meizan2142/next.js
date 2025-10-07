@@ -101,14 +101,20 @@ const Navbar = () => {
                             <ToggleSwitch />
                         </div>
                         <div>
-                            <Link href={"/api/auth/signin"}>
-                                {
-                                    session?.status === "authenticated" ?
-                                        <button onClick={() => signOut()} className='font-bold text-white text-sm'>Logout</button>
-                                        :
-                                        <button className='font-bold text-white text-sm'>Signin</button>
-                                }
-                            </Link>
+
+                            {
+                                session?.status === "authenticated" ?
+                                    <button onClick={() => signOut()} className='font-bold text-white text-sm'>Logout</button>
+                                    :
+                                    <div className='space-x-3'>
+                                        <Link href={"/api/auth/signin"}>
+                                            <button className='font-bold text-white text-sm'>Signin</button>
+                                        </Link>
+                                        <Link href={"/signup"}>
+                                            <button className='font-bold text-white text-sm'>Signup</button>
+                                        </Link>
+                                    </div>
+                            }
                         </div>
                         <div>
                             {
